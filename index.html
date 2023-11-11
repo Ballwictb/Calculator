@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="author" content="Sixball">
+    <meta name="description" content="Code for a simple but useful calculator" />
+    <meta name="language" content="ES">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Calculadora</title>
+    <link rel="shortcut icon" href="./icon/icono.png" type="image/x-icon">
+    <style>
+        body {
+            background-image: url("./img/collage.jpg");
+            background-repeat: repeat;
+            background-size: 380px;
+            background-attachment: fixed;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        div {
+            width: 300px;
+            display: inline-block;
+            position: relative;
+            margin-left: 50%;
+            transform: translateX(-50%);
+            margin-top: 125px;
+            border-radius: 30px;
+            padding: 15px;
+            box-shadow: 10px 10px 10px #50a7d9;
+            border: 5px solid #000;
+            background-color: #50a7d9;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        h5 {
+            position: fixed;
+        }
+
+        input[type="button"] {
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            margin: 8px;
+        }
+
+        table {
+            display: flex;
+            justify-content: center;
+        }
+
+        tr {
+            display: flex;
+            width: 300px;
+            height: 70px;
+            justify-content: center;
+        }
+
+        input {
+            background-color: #fff;
+            border: 1px solid #000;
+            width: 250px;
+            height: 60px;
+            border-radius: 10px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h5>sixball</h5>
+    <div>
+        <h1>Calculadora</h1>
+        <table>
+            <tr>
+                <td><input type="text" id="display" disabled></td>
+            </tr>
+            <tr>
+
+                <td><input type="button" value="C" onclick="clearDisplay()"></td>
+                <td><input type="button" value="%" onclick="addToDisplay('%')"></td>
+                <td><input type="button" value="^" onclick="addToDisplay('**')"></td>
+                <td><input type="button" value="÷" onclick="addToDisplay('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="addToDisplay('7')"></td>
+                <td><input type="button" value="8" onclick="addToDisplay('8')"></td>
+                <td><input type="button" value="9" onclick="addToDisplay('9')"></td>
+                <td><input type="button" value="*" onclick="addToDisplay('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="addToDisplay('4')"></td>
+                <td><input type="button" value="5" onclick="addToDisplay('5')"></td>
+                <td><input type="button" value="6" onclick="addToDisplay('6')"></td>
+                <td><input type="button" value="-" onclick="addToDisplay('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="addToDisplay('1')"></td>
+                <td><input type="button" value="2" onclick="addToDisplay('2')"></td>
+                <td><input type="button" value="3" onclick="addToDisplay('3')"></td>
+                <td><input type="button" value="+" onclick="addToDisplay('+')"></td>
+
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="addToDisplay('0')"></td>
+                <td><input type="button" value="." onclick="addToDisplay('.')"></td>
+                <td> <input type="button" value="=" onclick="calculate()"></td>
+                <td><input type="button" value="DEL" onclick="clearNumber()"></td>
+
+            </tr>
+
+        </table>
+    </div>
+    <script>
+
+        function addToDisplay(value) {
+            document.getElementById('display').value += value;
+        }
+
+        function calculate() {
+            try {
+                document.getElementById('display').value = eval(document.getElementById('display').value);
+            } catch (error) {
+                document.getElementById('display').value = 'Error';
+            }
+        }
+
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+        function clearNumber() {
+            var display = document.getElementById('display');
+            var valor = display.value;
+            display.value = valor.slice(0, -1);
+
+        }
+
+    </script>
+</body>
+
+</html>
