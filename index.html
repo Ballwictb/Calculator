@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta name="author" content="Sixball-">
+    <meta name="author" content="Sixball">
     <meta name="description" content="Code for a simple but useful calculator" />
     <meta name="language" content="ES">
     <meta http-equiv="Cache-Control" content="no-cache">
@@ -57,32 +57,7 @@
 
         </table>
     </div>
-    <script>
-
-        function addToDisplay(value) {
-            document.getElementById('display').value += value;
-        }
-
-        function calculate() {
-            try {
-                document.getElementById('display').value = eval(document.getElementById('display').value);
-            } catch (error) {
-                document.getElementById('display').value = 'Error';
-            }
-        }
-
-        function clearDisplay() {
-            document.getElementById('display').value = '';
-        }
-
-        function clearNumber() {
-            var display = document.getElementById('display');
-            var valor = display.value;
-            display.value = valor.slice(0, -1);
-
-        }
-
-    </script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
